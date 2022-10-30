@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <style>
+    html{
+      font-family: 'Libre Franklin', sans-serif;
+      color: hsl(209, 33%, 12%);
+    }
+    body,*{
+      margin: 0;
+      padding: 0;
+    }
+    .main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: calc(100px - 2vw) 0 0 0;
+      text-align: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .main div:nth-child(4){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: min(600px,80%);
+      /*margin-bottom: 70px;*/
+      gap: 10px;
+    }
+    .main img:nth-child(1){
+      width: 70px;
+      margin-bottom: 40px;
+    }
+    .main img:nth-child(5){
+      width: min(600px,90%);
+      margin-top: auto;
+    }
+    div:nth-child(6){
+      display: inline;
+    }
+    p:last-child{
+      font-size: 12px;
+    }
+    .main div:nth-child(4) > div:nth-child(2){
+      height: 40px;
+      background:hsl(223, 87%, 63%);
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      width: min(400px,100%);
+      color: white;
+    }
+    .main div:nth-child(4) > div:nth-child(1){
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: min(400px,100%);
+    }
+    .main div:nth-child(4) > div:nth-child(2):hover{
+      transform: scale(1.1);
+    }
+    input{
+      height: 40px;
+      border-radius: 30px;
+      width: 100%;
+      border-color: hsl(223deg 6% 90%);
+      padding: 0 0 0 20px;
+      box-sizing: border-box;
+    }
+    .main div:nth-child(4) > div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    h1{
+      font-size: max(30px,3vw);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p{
+      margin-bottom: 30px;
+    }
+    div:nth-child(6){
+      margin-top: auto;
+      margin-bottom: 20px;
+    }
+    input + p{
+      color: hsl(354, 100%, 66%);
+      display: none;
+      margin: 10px 0 0 0 ;
+    }
+    ion-icon{
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border:solid 1px grey;
+    }
+    ion-icon:hover{
+      transform: scale(1.2);
+      border:solid 2px grey;
+    }
+    @media screen and (min-width: 600px){
+      .main div:nth-child(4){
+        flex-direction: row;
+      }
+      .main div:nth-child(4) > div:nth-child(2){
+        width: min(200px,100%);
+      }
+      .main div:nth-child(4) > div:nth-child(1){
+        width: min(400px,100%);
+      }
+      .main div:nth-child(4){
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <img src="images/logo.svg" alt="logo">
+    <h1><span style="font-weight: 400;color: hsl(0, 0%, 59%);">We are launching </span>soon!</h1>
+
+    <p>Subscribe and get notified</p>
+
+    <div class="inputbar">
+      <div class="input">
+        <input placeholder="Your Email Address"type="text" name="email" class="email"  onkeypress="if(event.key == 'Enter') {document.getElementsByClassName('button')[0].click()}">
+        <p id = "val">Please provide a valid email address</p>
+      </div>
+      <div class="button" onclick="func()">Notify Me</div>
+    </div>
+    <img src="images/illustration-dashboard.png" alt="dashboard">
+    <div class="icons">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-icon name="logo-twitter"></ion-icon>
+      <ion-icon name="logo-instagram"></ion-icon>
+    </div>
+    <p>&copy; Copyright Ping. All rights reserved.</p>
+  </div>
+
+<script>
+  function func(){
+
+      var emaildata = document.getElementsByClassName('email')[0];
+      var val = document.getElementById('val');
+      if (/[A-Za-z0-9!#$%^&*()]+@[A-Za-z0-9!#$%^&*()]+\.+[A-Za-z0-9!#$%^&*()\.]{1,}/.test(emaildata.value)){
+        val.style.display = "none";
+        emaildata.style.borderColor = "black";
+      } else{
+        emaildata.style.borderColor = "red";
+        val.style.display = "initial";
+
+      }
+      emaildata.value = null        
+ 
+  }
+</script>
+</body>
+</html>
